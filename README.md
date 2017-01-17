@@ -3,10 +3,10 @@
 Just one more classic grid system. 
 I was trying to learn more about grid systems so, i created one.
 In a few words, MOLDA is a very simple and highly customizable grid.
-[Project page](#)
+[Project page](https://github.com/filipedaniel/MOLDA-Responsive-Grid-System)
 
 ## Download
- - Download: [zip]()
+ - Download: [zip](https://github.com/filipedaniel/MOLDA-Responsive-Grid-System/master)
 
 ## Quick-Start
 ``` html
