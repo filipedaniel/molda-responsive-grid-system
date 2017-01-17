@@ -1,0 +1,81 @@
+*,
+*::before,
+*::after {
+	box-sizing: border-box; 
+}
+body {
+	margin: 0;
+	padding: 0 0 30px 0;
+}
+body {
+	font-family: 'Lato', Helvetica, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	color: #263238;
+}
+
+.title-content {
+	text-align: center;
+	margin: 35px 0px;
+}
+.title-content h1 {
+	font-family: 'Lato', Helvetica, sans-serif;
+	font-size: 30px;
+	font-weight: 400;
+	margin: 0;
+}
+.title-content h1	span {
+	font-style: italic;
+}
+
+/****************/
+.code-content {
+	margin-top: 15px;
+	color: #89DDFF;
+}
+.code-content pre {
+	margin: 0;
+	padding: 25px 35px;
+	background-color: #263238;
+	line-height: 1.3;
+	font-size: 16px;
+}
+.code-content pre span {
+	color: #E96C75;
+}
+.code-content pre span.class {
+	color: #F7CB6B;
+}
+.code-content pre b {
+	font-weight: normal;
+	color: #C0E88D;
+}
+.code-content pre span.text {
+	color: #fff;
+}
+
+.elem {
+	background: #263238;
+	min-height: 50px;
+	margin-top: 20px;
+}
+.elem p,
+.elem-2 p {
+	font-family: monospace,monospace;
+	color: #fff;
+	font-size: 12px;
+	text-align: center;
+	margin: 0;
+	padding: 0;
+	line-height: 50px;
+}
+
+.elem-2 {
+	min-height: 30px;
+	margin-top: 20px;
+	background: #E96C75;
+}
+.elem-3 {
+	min-height: 30px;
+	margin-top: 20px;
+	background: orange;
+}

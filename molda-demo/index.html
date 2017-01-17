@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <!-- &diams; &Delta;  -->
+    <title>&bull; MOLDA &bull; Grid System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,400i">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
+    <link rel="stylesheet" href="../src/molda.css">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="column xs-12">
+          <div class="title-content">
+            <h1>&bull; MOLDA &bull;  <span>Grid System</span></h1>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- -->
+    <div class="container">
+      <div class="row">
+        <div class="column xs-12 sm-10 lg-9 column--center">
+          <div class="code-content">
+            <pre>
+&lt;<span>div</span> <span class="class">class</span>="<b>container full-expand</b>"&gt;
+  &lt;<span>div</span> <span class="class">class</span>="<b>row</b>"&gt;
+    &lt;<span>div</span> <span class="class">class</span>="<b>column xs-12</b>"&gt; <span class="text">...</span> &lt;/<span>div</span>&gt;
+  &lt;/<span>div</span>&gt;
+&lt;/<span>div</span>&gt;
+&lt;<span>div</span> <span class="class">class</span>="<b>container</b>"&gt;
+  &lt;<span>div</span> <span class="class">class</span>="<b>row</b>"&gt;
+    &lt;<span>div</span> <span class="class">class</span>="<b>column xs-12 sm-6 md-4 xl-3</b>"&gt; <span class="text">...</span> &lt;/<span>div</span>&gt;
+    &lt;<span>div</span> <span class="class">class</span>="<b>column xs-12 sm-6 md-4 xl-3</b>"&gt; <span class="text">...</span> &lt;/<span>div</span>&gt;
+    &lt;<span>div</span> <span class="class">class</span>="<b>column xs-12 sm-6 md-4 xl-3</b>"&gt; <span class="text">...</span> &lt;/<span>div</span>&gt;
+    &lt;<span>div</span> <span class="class">class</span>="<b>column xs-12 sm-6 md-12 lg-6 lg-center xl-3</b>"&gt; <span class="text">...</span> &lt;/<span>div</span>&gt;
+  &lt;/<span>div</span>&gt;
+  &lt;<span>div</span> <span class="class">class</span>="<b>row</b>"&gt;
+    &lt;<span>div</span> <span class="class">class</span>="<b>column xs-11 column--center</b>"&gt;<span class="text"> ... </span>&lt;/<span>div</span>&gt;
+      &lt;<span>div</span> <span class="class">class</span>="<b>row</b>"&gt;
+        &lt;<span>div</span> <span class="class">class</span>="<b>column xs-6</b>"&gt; <span class="text">...</span> &lt;/<span>div</span>&gt;
+        &lt;<span>div</span> <span class="class">class</span>="<b>column xs-6</b>"&gt; <span class="text">...</span> &lt;/<span>div</span>&gt;
+      &lt;/<span>div</span>&gt;
+    &lt;/<span>div</span>&gt;
+  &lt;/<span>div</span>&gt;
+&lt;/<span>div</span>&gt; </pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- -->
+  <div class="container full-expand">
+    <div class="row">
+      <div class="column xs-12">
+        <div class="elem"></div>
+      </div>
+    </div>
+  </div>
+  <!-- -->
+  <div class="container expand">
+    <div class="row">
+      <div class="column xs-12">
+        <div class="elem"></div>
+      </div>
+    </div>
+  </div>
+  <!-- -->
+  <div class="container">
+    <div class="row">
+      <div class="column xs-12 sm-6">
+        <div class="elem"></div>
+      </div>
+      <div class="column xs-12 sm-6">
+        <div class="elem"></div>
+      </div>
+    </div>
+  </div>
+  <!-- -->
+  <div class="container">
+    <div class="row">
+      <div class="column xs-12 sm-6 md-4 xl-3">
+        <div class="elem"></div>
+      </div>
+      <div class="column xs-12 sm-6 md-4 xl-3">
+        <div class="elem"></div>
+      </div>
+      <div class="column xs-12 sm-6 md-4 xl-3">
+        <div class="elem"></div>
+      </div>
+      <div class="column xs-12 sm-6 md-12 lg-6 lg-center xl-3">
+        <div class="elem"></div>
+      </div>
+    </div>
+  </div>
+  <!-- -->
+  <div class="container">
+    <div class="row">
+      <div class="column xs-11 column--center">
+        <div class="elem">
+          <div class="row">
+            <div class="column xs-6">
+              <div class="elem-2"></div>
+            </div>
+            <div class="column xs-6">
+              <div class="elem-2"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- -->
+  <div class="container">
+    <div class="row">
+      <div class="column xs-12 md-11 column--center">
+        <div class="elem">
+          <div class="row">
+            <div class="column xs-6">
+              <div class="elem-2">
+                <div class="row">
+                  <div class="column xs-12 md-6">
+                    <div class="elem-3"></div>
+                  </div>
+                  <div class="column xs-12 md-6">
+                    <div class="elem-3"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="column xs-6">
+              <div class="elem-2">
+                <div class="row">
+                  <div class="column xs-10 column--center">
+                    <div class="elem-3"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </body>
+</html>
+
+
+
+

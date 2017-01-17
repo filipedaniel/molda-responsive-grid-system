@@ -1,0 +1,389 @@
+/************************************************
+ *  MOLDA - Responsive Grid System
+ *  Copyright 2017 Filipe Daniel
+ *  Free to use under the MIT license
+ *  https://github.com/
+ ***********************************************/
+
+/**
+ * 1. Variables
+ * 2. Base Code
+ * 3. Grid System
+ *    3.1. Container
+ *    3.2. Row
+ *    3.3. Columns
+ * 4. Responsive Utilities
+ * 5. Utilities classes
+ */
+
+/*************************************************/
+
+/*************************************************
+ * 1. Variables
+ */
+
+// -----------------
+//    - Names: container, row, column
+$use-container: true !default;
+
+// -----------------
+//    - Names: container, row, column
+$container-name:  "container" !default;
+$row-name:        "row" !default;
+$column-name:     "column" !default;
+
+// -----------------
+//    - Column numbers
+$grid-columns: 12 !default;
+
+// -----------------
+//    - xs-name class prefix,
+//      sm-name class prefix,
+//      md-name class prefix,
+//      lg-name class prefix,
+//      xl-name class prefix,
+$xs-name: 'xs' !default;
+$sm-name: 'sm' !default;
+$md-name: 'md' !default;
+$lg-name: 'lg' !default;
+$xl-name: 'xl' !default;
+
+// -----------------
+//    - Gutter width
+$gutter: 20px !default;
+
+// -----------------
+//    - width breakpoint-screen-sm,
+//      width breakpoint-screen-md,
+//      width breakpoint-screen-lg
+//      width breakpoint-screen-xl
+$breakpoint-screen-sm: 576px !default;
+$breakpoint-screen-md: 768px !default;
+$breakpoint-screen-lg: 992px !default;
+$breakpoint-screen-xl: 1200px !default;
+
+// -----------------
+//    - width container-xs,
+//      width container-sm, 
+//      width container-md,
+//      width container-lg
+//      width container-xl
+$container-xs-width: 100% !default;
+$container-sm-width: 540px !default;
+$container-md-width: 720px !default;
+$container-lg-width: 960px !default;
+$container-xl-width: 1140px !default;
+
+// -----------------
+// compile utilities
+$compile-utilities: true !default;
+
+
+/*************************************************
+ * 2. Base Code
+ */
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.5;
+  color: #333333;
+  background-color: #ffffff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; 
+}
+
+/*************************************************
+ * 3. Grid System
+ */
+/********************
+ * 3.1. Container 
+ */
+@if $use-container == true { 
+  .#{$container-name} {
+    width: $container-xs-width;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .#{$container-name}::after,
+  .#{$container-name}::before {
+    content: "";
+    display: table;
+  }
+  .#{$container-name}::after {
+    clear: both;
+  }
+  @media (min-width: $breakpoint-screen-sm) {
+    .#{$container-name} {
+      width: $container-sm-width;
+      max-width: 100%;
+    }
+  }
+  @media (min-width: $breakpoint-screen-md) {
+    .#{$container-name} {
+      width: $container-md-width;
+      max-width: 100%;
+    }
+  }
+  @media (min-width: $breakpoint-screen-lg) {
+    .#{$container-name} {
+      width: $container-lg-width;
+      max-width: 100%;
+    }
+  }
+  @media (min-width: $breakpoint-screen-xl) {
+    .#{$container-name} {
+      width: $container-xl-width;
+      max-width: 100%;
+    }
+  }
+  .#{$container-name}.expand {
+    width: 100%;
+    max-width: 100%;
+  }
+  .#{$container-name}.full-expand {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+    .#{$row-name} {
+      margin-left: 0;
+      margin-right: 0;
+      .#{$column-name} {
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+  }
+}
+
+/********************
+ * 3.2. Row 
+ */
+.#{$row-name}::before, 
+.#{$row-name}::after {
+  display: table;
+  content: ' '; 
+}
+.#{$row-name}::after {
+  clear: both; 
+}
+.#{$row-name} {
+  margin-right: 0;
+  margin-left: 0;
+}
+.#{$row-name} .#{$row-name} {
+  margin-right: - ($gutter / 2);
+  margin-left: - ($gutter / 2);
+}
+.#{$row-name}.no-gutters > .#{$column-name} {
+  padding-right: 0;
+  padding-left: 0; 
+ }
+ .#{$row-name} .#{$row-name}.no-gutters {
+    margin-right: 0;
+    margin-left: 0;  
+ }
+.#{$row-name}.eq-height {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex; 
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap; 
+}
+/********************
+ * 3.3. Columns 
+ */
+.#{$column-name} {
+  width: 100%;
+  float: left;
+  padding-right: ($gutter / 2);
+  padding-left: ($gutter / 2);
+}
+@mixin make-columns($class) {
+  @for $i from 1 through $grid-columns {
+    .#{$class}-#{$i} {
+      width: percentage(($i / $grid-columns)); 
+    }
+  }
+}
+@mixin make-columns-offset($class) {
+  @for $i from 1 through $grid-columns - 1 {
+    .#{$class}-offset-#{$i} {
+      margin-left: percentage($i / $grid-columns);
+    }
+  }
+}
+@include make-columns($xs-name);
+@include make-columns-offset($xs-name);
+@media (min-width: $breakpoint-screen-sm) {
+  @include make-columns($sm-name);
+  @include make-columns-offset($sm-name);
+}
+@media (min-width: $breakpoint-screen-md) {
+  @include make-columns($md-name);
+  @include make-columns-offset($md-name);
+}
+@media (min-width: $breakpoint-screen-lg) {
+  @include make-columns($lg-name);
+  @include make-columns-offset($lg-name);
+}
+@media (min-width: $breakpoint-screen-xl) {
+  @include make-columns($xl-name);
+  @include make-columns-offset($xl-name);
+}
+/*************************************************
+ * 4. Responsive Utilities
+ */
+@mixin responsive-visible($type) {
+  .#{$type}-visible {
+    display: block !important;
+  }
+}
+@mixin responsive-hidden($type) {
+  .#{$type}-hidden {
+    display: none !important;
+  }
+}
+.#{$xs-name}-visible,
+.#{$sm-name}-visible,
+.#{$md-name}-visible,
+.#{$lg-name}-visible,
+.#{$xl-name}-visible {
+  display: none !important;
+}
+@media (max-width: $breakpoint-screen-sm - 1) {
+  @include responsive-visible($xs-name);
+  @include responsive-hidden($xs-name);
+}
+@media (min-width: $breakpoint-screen-sm) and (max-width: $breakpoint-screen-md - 1) {
+  @include responsive-visible($sm-name);
+  @include responsive-hidden($sm-name);
+}
+@media (min-width: $breakpoint-screen-md) and (max-width: $breakpoint-screen-lg - 1) {
+  @include responsive-visible($md-name);
+  @include responsive-hidden($md-name);
+}
+@media (min-width: $breakpoint-screen-lg) and (max-width: $breakpoint-screen-xl - 1) {
+  @include responsive-visible($lg-name);
+  @include responsive-hidden($lg-name);
+}
+@media (min-width: $breakpoint-screen-xl) {
+  @include responsive-visible($xl-name);
+  @include responsive-hidden($xl-name);
+}
+
+/*************************************************
+ * 5. Utilities classes
+ */
+
+@mixin position--center($size) {
+  .#{$size}-center {
+    float: none;
+    clear: both;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    &::before,
+    &::after {
+      display: table;
+      content: ' ';
+    } 
+    &::after {
+      clear: both;
+    }
+  }
+}
+
+@mixin position--left($size) {
+  .#{$size}-left {
+    float: left !important;
+  }
+}
+@mixin position--right($size) {
+  .#{$size}-right {
+    float: right !important;
+  }
+}
+@if $compile-utilities == true { 
+  .column--center {
+    float: none;
+    clear: both;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    &:before,
+    &:after {
+      display: table;
+      content: ' '; }
+    &:after {
+      clear: both;  } }
+  .column--right {
+    float: right !important; }
+  .column--left {
+    float: left !important; }
+  .hidden {
+    display: none !important; }
+  .visible {
+    display: block !important; }
+  .img-responsive {
+    display: block;
+    max-width: 100%;
+    height: auto; }
+  .truncate {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; }
+  .clearfix::before, 
+  .clearfix::after {
+    display: table;
+    content: ' ';  }
+  .clearfix::after {
+    clear: both;  }
+
+  @media (max-width: $breakpoint-screen-sm - 1) {
+    @include position--center($xs-name);
+    @include position--left($xs-name);
+    @include position--right($xs-name);
+  }
+  @media (min-width: $breakpoint-screen-sm) and (max-width: $breakpoint-screen-md - 1) {
+    @include position--center($sm-name);
+    @include position--left($sm-name);
+    @include position--right($sm-name);;
+  }
+  @media (min-width: $breakpoint-screen-md) and (max-width: $breakpoint-screen-lg - 1) {
+    @include position--center($md-name);
+    @include position--left($md-name);
+    @include position--right($md-name);
+  }
+  @media (min-width: $breakpoint-screen-lg) and (max-width: $breakpoint-screen-xl - 1) {
+    @include position--center($lg-name);
+    @include position--left($lg-name);
+    @include position--right($lg-name);
+  }
+  @media (min-width: $breakpoint-screen-xl) {
+    @include position--center($xl-name);
+    @include position--left($xl-name);
+    @include position--right($xl-name);
+  }
+}
+/*************************************************/
