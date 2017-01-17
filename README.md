@@ -6,7 +6,7 @@ In a few words, MOLDA is a very simple and highly customizable grid.
 [Project page](https://github.com/filipedaniel/MOLDA-Responsive-Grid-System)
 
 ## Download
- - Download: [zip](https://github.com/filipedaniel/MOLDA-Responsive-Grid-System/master)
+ - Download: [zip](https://github.com/filipedaniel/MOLDA-Responsive-Grid-System/archive/master.zip)
 
 ## Quick-Start
 ``` html
